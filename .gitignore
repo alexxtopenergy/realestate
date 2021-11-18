@@ -4,6 +4,10 @@
 *.sql
 *.sqlite
 .idea/*
+.env
+php.conf.ini
+*.phar
+*.phar.1
 
 wordpress/*
 !wp-content/
@@ -19,4 +23,5 @@ logs/nginx/*
 !logs/nginx/.keep
 _trash
 mysql/*
+
 

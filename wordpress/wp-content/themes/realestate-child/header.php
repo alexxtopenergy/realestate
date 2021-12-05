@@ -20,18 +20,27 @@
 <?php wp_body_open(); ?>
 	<div id="page" class="site">
 
-		<header id="masthead" class="site-header">
-			<div class="logo"></div>
+		<header class="site-header">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<a class="navbar-brand col-md-4" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+					<div class="collapse navbar-collapse col-md-8" id="navbarDropdown">
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'main_menu',
+								'menu_id'         => 'primary-menu',
+								'container_class' => 'header_nav',
+								'menu_class'      => 'header_nav_list',
+								'add_li_class'    => 'nav_item',
+							)
+						);
+						?>
 
-			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'realestate' ); ?></button>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
+					</div>
+				</div>
 			</nav>
 		</header>

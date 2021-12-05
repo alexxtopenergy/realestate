@@ -11,26 +11,21 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'realestate' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'realestate' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'realestate' ), 'realestate', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="text-center">Copyright &copy; - <?php esc_attr_e( date( 'Y' ) ); ?></div>
+		</div>
+
+	</footer>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
-</body>
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- FontAwesome Kit -->
+<script src="https://kit.fontawesome.com/59a5687498.js" crossorigin="anonymous"></script>
+
+</body>
+
 </html>

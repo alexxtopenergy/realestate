@@ -18,29 +18,29 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+	<div id="page" class="site">
 
-	<header class="site-header">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<a class="navbar-brand col-md-4" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-				<div class="collapse navbar-collapse col-md-8" id="navbarDropdown">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'main_menu',
-							'menu_id'         => 'primary-menu',
-							'container_class' => 'header_nav',
-							'menu_class'      => 'header_nav_list',
-							'add_li_class'    => 'nav_item',
-						)
-					);
-					?>
+		<header class="site-header">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<a class="navbar-brand col-md-4" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+					<div class="collapse navbar-collapse col-md-8" id="navbarDropdown">
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'main_menu',
+								'menu_id'         => 'primary-menu',
+								'container_class' => 'header_nav',
+								'menu_class'      => 'header_nav_list',
+								'add_li_class'    => 'nav_item',
+							)
+						);
+						?>
 
+					</div>
 				</div>
-			</div>
-		</nav>
-	</header>
+			</nav>
+		</header>

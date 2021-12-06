@@ -118,7 +118,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 		 */
 		public function get_terms_hierarchical( $tax_name, $current_term ) {
 
-			$html = '';
+			//$html = '';
 
 			$taxanomy_terms = get_terms(
 				$tax_name,
@@ -131,13 +131,15 @@ if ( ! class_exists( 'MyEstate' ) ) :
 			if ( ! empty( $taxanomy_terms ) ) {
 				foreach ( $taxanomy_terms as $term ) {
 					if ( $current_term == $term->term_id ) {
-						$html .= '<option value="' . $term->term_id . '" selected>' . $term->name . '</option>';
+						echo '<option value="' . $term->term_id . '" selected>' . $term->name . '</option>';
+						//html.= '<option value="' . $term->term_id . '" selected>' . $term->name . '</option>';
 					} else {
-						$html .= '<option value="' . $term->term_id . '">' . $term->name . '</option>';
+						echo '<option value="' . $term->term_id . '">' . $term->name . '</option>';
+						//echo '<option value="' . $term->term_id . '">' . $term->name . '</option>';
 					}
 				}
 			}
-			return $html;
+			//return $html;
 		}
 
 		/**

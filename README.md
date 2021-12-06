@@ -15,21 +15,25 @@ docker-compose up -d --build
 docker-compose down
 rm -rf certs/* certs-data/* logs/nginx/* mysql/* wordpress/*
 
+# Activate My Estate plugin
+http://localhost/wp-admin/plugins.php
 
 # Filter Shortcode, 1 - enable
 [my_estate_list materials="1" rooms="1"]
  
-# Activate My Estate plugin 
-http://localhost/wp-admin/plugins.php
-
 # Just in case update permalinks
 http://localhost/wp-admin/options-permalink.php
 
 # Real Estate Catalog
 http://localhost/properties/
 
-# Shortcode Page http://localhost/shortcode/
+# Shortcode Page 
+http://localhost/shortcode/
 
 #import Demo Data 
+http://localhost/wp-admin/import.php
+
+Please, import realestate.WordPress.2021-12-06.xml in root path
+
 
 

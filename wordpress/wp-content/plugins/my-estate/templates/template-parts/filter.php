@@ -12,12 +12,10 @@ $materials       = ( isset( $_GET['materials'] ) ? $_GET['materials'] : '' );
 $rooms           = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
 $estate_district = ( isset( $_GET['estate_district'] ) ? $_GET['estate_district'] : '' );
 $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
-
 ?>
 
 <form class="form-search d-flex justify-content-between" method="get" action="<?php get_post_type_archive_link( 'real_estate' ); ?>">
 	<?php $my_estate_terms_fields = new MyEstate(); ?>
-
 	<div class="location filter-field">
 		<div class="select-wrap">
 			<select name="estate_district" id="estate_district" class="form-control d-block">
@@ -27,7 +25,7 @@ $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 		</div>
 	</div>
 
-	<?php wp_nonce_field( 'form_on_filter', 'my_estate_filter_nonce' ); ?>
+
 
 	<div class="price-field filter-field">
 		<input type="number" name="min_price" placeholder="<?php esc_html_e( 'Min Price:', 'my-estate' ); ?>"  class="d-block filter-input form-control" value="
@@ -134,6 +132,15 @@ $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 	<div class="button-filter">
 		<input type="submit" name="submit" class="btn btn-success text-white btn-block" value="<?php esc_attr_e( 'Search', 'my-estate' ); ?>">
 	</div>
+
+	<?php
+    /* ToDo Add wp nonce
+	if ( ( isset( $_GET['my_estate_filter_nonce'] ) || wp_verify_nonce( $_GET['my_estate_filter_nonce'], 'form_on_filter_submit' ) ) ){
+        echo "not verify...";
+    }
+    wp_nonce_field( 'form_on_filter_submit', 'my_estate_filter_nonce' );
+    */
+    ?>
 
 
 </form>

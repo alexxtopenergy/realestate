@@ -3,40 +3,15 @@
  * Filter Template
  */
 
-if ( $_GET['min_price'] && ! empty( $_GET['min_price'] ) ) {
-	$min_price = $_GET['min_price'];
-}
 
-if ( $_GET['max_price'] && ! empty( $_GET['max_price'] ) ) {
-	$max_price = $_GET['max_price'];
-}
-
-if ( $_GET['min_area'] && ! empty( $_GET['min_area'] ) ) {
-	$min_area = $_GET['min_area'];
-}
-if ( $_GET['max_area'] && ! empty( $_GET['max_area'] ) ) {
-	$max_area = $_GET['max_area'];
-}
-
-if ( $_GET['materials'] && ! empty( $_GET['materials'] ) ) {
-	$materials = $_GET['materials'];
-}
-
-if ( $_GET['rooms'] && ! empty( $_GET['rooms'] ) ) {
-	$rooms = $_GET['rooms'];
-	$rooms = $_GET['rooms'];
-}
-
-if ( $_GET['estate_district'] && ! empty( $_GET['estate_district'] ) ) {
-	$estate_district = $_GET['estate_district'];
-}
-
-if ( $_GET['submit'] && ! empty( $_GET['submit'] ) ) {
-	$submit = $_GET['submit'];
-}
-//$materials = 'Panel';
-
-
+$min_price       = ( isset( $_GET['$min_price'] ) ? $_GET['$min_price'] : '' );
+$max_price       = ( isset( $_GET['max_price'] ) ? $_GET['max_price'] : '' );
+$min_area        = ( isset( $_GET['min_area'] ) ? $_GET['min_area'] : '' );
+$max_area        = ( isset( $_GET['max_area'] ) ? $_GET['max_area'] : '' );
+$materials       = ( isset( $_GET['materials'] ) ? $_GET['materials'] : '' );
+$rooms           = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
+$estate_district = ( isset( $_GET['estate_district'] ) ? $_GET['estate_district'] : '' );
+$submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 
 ?>
 
@@ -55,13 +30,13 @@ if ( $_GET['submit'] && ! empty( $_GET['submit'] ) ) {
 	<?php wp_nonce_field( 'form_on_filter', 'my_estate_filter_nonce' ); ?>
 
 	<div class="price-field filter-field">
-        <input type="number" name="min_price" placeholder="<?php esc_html_e( 'Min Price:', 'my-estate' ); ?>"  class="d-block filter-input form-control" value="
+		<input type="number" name="min_price" placeholder="<?php esc_html_e( 'Min Price:', 'my-estate' ); ?>"  class="d-block filter-input form-control" value="
 			<?php
 			if ( isset( $min_price ) ) {
 				echo esc_attr( $min_price ); }
 			?>
 			 ">
-        <input type="number" name="max_price" placeholder="<?php esc_html_e( 'Max Price:', 'my-estate' ); ?>" class="d-block filter-input form-control ml-15"  value="
+		<input type="number" name="max_price" placeholder="<?php esc_html_e( 'Max Price:', 'my-estate' ); ?>" class="d-block filter-input form-control ml-15"  value="
 			<?php
 			if ( isset( $max_price ) ) {
 				echo esc_attr( $max_price ); }
@@ -71,17 +46,17 @@ if ( $_GET['submit'] && ! empty( $_GET['submit'] ) ) {
 
 	<div class="area-field filter-field">
 		<input type="number" name="min_area" placeholder="<?php esc_html_e( 'Min Area:', 'my-estate' ); ?>" class="d-block filter-input form-control" id="min_area" value="
-            <?php
-            if ( isset( $min_area ) ) {
-                echo esc_attr( $min_area ); }
-            ?>
+			<?php
+			if ( isset( $min_area ) ) {
+				echo esc_attr( $min_area ); }
+			?>
 		 ">
 
 		<input type="number" name="max_area" placeholder="<?php esc_html_e( 'Max Area:', 'my-estate' ); ?>" class="d-block filter-input form-control ml-15" id="max_area" value="
-            <?php
-            if ( isset( $max_area ) ) {
-                echo esc_attr( $max_area ); }
-            ?>
+			<?php
+			if ( isset( $max_area ) ) {
+				echo esc_attr( $max_area ); }
+			?>
 		 ">
 	</div>
 

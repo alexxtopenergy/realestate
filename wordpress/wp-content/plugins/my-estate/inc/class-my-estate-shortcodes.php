@@ -246,7 +246,7 @@ class MyEstateShortcodes {
 		if ( isset( $_GET['min_area'] ) ) {
 			$min_area     = sanitize_text_field( $_GET['min_area'] );
 			$meta_query[] = array(
-				'key'     => 'price',
+				'key'     => 'living_area',
 				'value'   => $min_area,
 				'compare' => '>=',
 			);
@@ -255,7 +255,7 @@ class MyEstateShortcodes {
 		if ( isset( $_GET['max_area'] ) ) {
 			$max_area     = sanitize_text_field( $_GET['max_area'] );
 			$meta_query[] = array(
-				'key'     => 'price',
+				'key'     => 'living_area',
 				'value'   => $max_area,
 				'compare' => '<=',
 			);
@@ -309,19 +309,19 @@ class MyEstateShortcodes {
 			while ( $search_query->have_posts() ) {
 				$search_query->the_post();
 
-				$cats = strip_tags( get_the_category_list( ', ' ) );
+				//$cats = strip_tags( get_the_category_list( ', ' ) );
 
 				$result[] = array(
-					'id'            => get_the_ID(),
-					'title'         => get_the_title(),
-					'content'       => get_the_content(),
-					'permalink'     => get_permalink(),
-					'price'         => get_field( 'price' ),
-					'living_area'   => get_field( 'living_area' ),
-					'floors'        => get_field( 'floors' ),
-					'language'      => get_field( 'language' ),
-					'district'      => $cats,
-					'primary_image' => get_field( 'primary_image' ),
+					'id'               => get_the_ID(),
+					'title'            => get_the_title(),
+					'content'          => get_the_content(),
+					'permalink'        => get_permalink(),
+					'price'            => get_field( 'price' ),
+					'living_area'      => get_field( 'living_area' ),
+					'floors'           => get_field( 'floors' ),
+					'number_of_floors' => get_field( 'number_of_floors' ),
+					//'district'      => $cats,
+					'primary_image'    => get_field( 'primary_image' ),
 				);
 			}
 			wp_reset_query();

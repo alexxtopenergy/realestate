@@ -74,7 +74,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 				array(
 					'url' => admin_url('admin-ajax.php'),
 					'nonce' => wp_create_nonce( '_wpnonce'),
-					'title' => esc_html('Ajax Filter', 'my-estate');
+					'title' => esc_html('Ajax Filter', 'my-estate'),
 				)
 			);
 		}

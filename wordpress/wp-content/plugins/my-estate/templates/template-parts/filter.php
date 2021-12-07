@@ -9,9 +9,10 @@ $max_price       = ( isset( $_GET['max_price'] ) ? $_GET['max_price'] : '' );
 $min_area        = ( isset( $_GET['min_area'] ) ? $_GET['min_area'] : '' );
 $max_area        = ( isset( $_GET['max_area'] ) ? $_GET['max_area'] : '' );
 $materials       = ( isset( $_GET['materials'] ) ? $_GET['materials'] : '' );
-$rooms           = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
+$room            = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
 $estate_district = ( isset( $_GET['estate_district'] ) ? $_GET['estate_district'] : '' );
 $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
+
 ?>
 
 <form class="form-search d-flex justify-content-between" method="get" action="<?php get_post_type_archive_link( 'real_estate' ); ?>">
@@ -24,8 +25,6 @@ $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 			</select>
 		</div>
 	</div>
-
-
 
 	<div class="price-field filter-field">
 		<input type="number" name="min_price" placeholder="<?php esc_html_e( 'Min Price:', 'my-estate' ); ?>"  class="d-block filter-input form-control" value="

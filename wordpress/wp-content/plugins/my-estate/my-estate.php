@@ -58,7 +58,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 			add_action( 'manage_real_estate_posts_custom_column', array( $this, 'my_estate_custom_admin_columns' ) );
 			add_filter( 'acf/format_value/name=price', array( $this, 'format_number_as_currency' ), 10, 3 );
 			add_action( 'pre_get_post', array( $this, 'my_pre_get_posts' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'myajax_data' ), 99 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'my_estate_ajax_data' ), 99 );
 		}
 
 		/**
@@ -69,10 +69,12 @@ if ( ! class_exists( 'MyEstate' ) ) :
 			wp_enqueue_script( 'my_estate_script', plugins_url( '/assets/js/script.js', __FILE__ ), array( 'jquery' ), 1.0, true );
 		}
 
-		public function myajax_data(){
+		public function my_estate_ajax_data(){
 			wp_localize_script( 'my-estate-ajax-filter', 'ajax_url',
 				array(
-					'url' => admin_url('admin-ajax.php')
+					'url' => admin_url('admin-ajax.php'),
+					'nonce' => wp_create_nonce( '_wpnonce'),
+					'title' => esc_html('Ajax Filter', 'my-estate');
 				)
 			);
 		}
@@ -135,7 +137,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 						//html.= '<option value="' . $term->term_id . '" selected>' . $term->name . '</option>';
 					} else {
 						echo '<option value="' . $term->term_id . '">' . $term->name . '</option>';
-						//echo '<option value="' . $term->term_id . '">' . $term->name . '</option>';
+						//html.= '<option value="' . $term->term_id . '">' . $term->name . '</option>';
 					}
 				}
 			}

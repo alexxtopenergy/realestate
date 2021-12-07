@@ -24,14 +24,14 @@ get_header();
 					$args = array(
 						'post_type'      => 'real_estate',
 						'posts_per_page' => -1,
-						'taxonomy'       => 'district',
+						//'taxonomy'       => 'district',
 
 						'meta_query'     => array(
 							'relation' => 'AND',
 
 							array(
 								'key'     => 'rooms',
-								'value'   => $rooms,
+								'value'   => $room,
 								'type'    => 'NUMERIC',
 								'compare' => '=',
 							),

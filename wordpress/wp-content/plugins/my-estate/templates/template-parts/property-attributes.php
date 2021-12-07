@@ -25,14 +25,14 @@
 	<?php if ( $number_of_floors ) : ?>
 		<li>
 			<span><i class="fas fa-building"></i><?php esc_html_e( 'Number of Floor:', 'my-estate' ); ?></span>
-            <strong><?php echo esc_html( $number_of_floors ); ?> m<sup>2</sup></strong>
+            <strong><?php echo esc_html( $number_of_floors ); ?> </strong>
 		</li>
 	<?php endif; ?>
 
 	<?php if ( $living_area ) : ?>
 		<li>
 			<span><i class="fas fa-vector-square"></i><?php esc_html_e( 'Area:', 'my-estate' ); ?></span>
-			<strong><?php echo esc_html( $living_area ); ?></strong>
+			<strong><?php echo esc_html( $living_area ); ?>m<sup>2</sup></strong>
 		</li>
 	<?php endif; ?>
 

@@ -4,14 +4,14 @@
  */
 
 
-$min_price       = ( isset( $_GET['$min_price'] ) ? $_GET['$min_price'] : '' );
-$max_price       = ( isset( $_GET['max_price'] ) ? $_GET['max_price'] : '' );
-$min_area        = ( isset( $_GET['min_area'] ) ? $_GET['min_area'] : '' );
-$max_area        = ( isset( $_GET['max_area'] ) ? $_GET['max_area'] : '' );
-$materials       = ( isset( $_GET['materials'] ) ? $_GET['materials'] : '' );
-$room            = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
-$estate_district = ( isset( $_GET['estate_district'] ) ? $_GET['estate_district'] : '' );
-$submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
+$min_price = ( isset( $_GET['$min_price'] ) ? $_GET['$min_price'] : '' );
+$max_price = ( isset( $_GET['max_price'] ) ? $_GET['max_price'] : '' );
+$min_area  = ( isset( $_GET['min_area'] ) ? $_GET['min_area'] : '' );
+$max_area  = ( isset( $_GET['max_area'] ) ? $_GET['max_area'] : '' );
+$materials = ( isset( $_GET['materials'] ) ? $_GET['materials'] : '' );
+$rooms     = ( isset( $_GET['rooms'] ) ? $_GET['rooms'] : '' );
+$district  = ( isset( $_GET['district'] ) ? $_GET['district'] : '' );
+$submit    = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 
 ?>
 
@@ -21,7 +21,7 @@ $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 		<div class="select-wrap">
 			<select name="estate_district" id="estate_district" class="form-control d-block">
 				<option value=""><?php esc_html_e( 'Location', 'my-estate' ); ?></option>
-				<?php $my_estate_terms_fields->get_terms_hierarchical( 'district', $estate_district ); ?>
+				<?php $my_estate_terms_fields->get_terms_hierarchical( 'district', $district ); ?>
 			</select>
 		</div>
 	</div>
@@ -132,14 +132,6 @@ $submit          = ( isset( $_GET['submit'] ) ? $_GET['submit'] : '' );
 		<input type="submit" name="submit" class="btn btn-success text-white btn-block" value="<?php esc_attr_e( 'Search', 'my-estate' ); ?>">
 	</div>
 
-	<?php
-    /* ToDo Add wp nonce
-	if ( ( isset( $_GET['my_estate_filter_nonce'] ) || wp_verify_nonce( $_GET['my_estate_filter_nonce'], 'form_on_filter_submit' ) ) ){
-        echo "not verify...";
-    }
-    wp_nonce_field( 'form_on_filter_submit', 'my_estate_filter_nonce' );
-    */
-    ?>
 
 
 </form>

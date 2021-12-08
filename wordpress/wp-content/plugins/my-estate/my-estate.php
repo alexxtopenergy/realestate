@@ -58,7 +58,6 @@ if ( ! class_exists( 'MyEstate' ) ) :
 			add_action( 'manage_real_estate_posts_custom_column', array( $this, 'my_estate_custom_admin_columns' ) );
 			add_filter( 'acf/format_value/name=price', array( $this, 'format_number_as_currency' ), 10, 3 );
 			add_action( 'pre_get_post', array( $this, 'my_pre_get_posts' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'my_estate_ajax_data' ), 99 );
 		}
 
 		/**
@@ -67,16 +66,6 @@ if ( ! class_exists( 'MyEstate' ) ) :
 		public function enqueue_front() {
 			wp_enqueue_style( 'my_estate_style', plugins_url( '/assets/css/styles.css', __FILE__ ) );
 			wp_enqueue_script( 'my_estate_script', plugins_url( '/assets/js/script.js', __FILE__ ), array( 'jquery' ), 1.0, true );
-		}
-
-		public function my_estate_ajax_data(){
-			wp_localize_script( 'my-estate-ajax-filter', 'ajax_url',
-				array(
-					'url' => admin_url('admin-ajax.php'),
-					'nonce' => wp_create_nonce( '_wpnonce'),
-					'title' => esc_html('Ajax Filter', 'my-estate'),
-				)
-			);
 		}
 
 		/**
@@ -179,7 +168,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 
 			switch ( $column ) {
 				case 'primary_image':
-					echo '<img src="' . esc_html( get_field( 'primary_image', $post->ID )['url'] ) . '" width="120px">';
+					echo '<img src="' . esc_url( wp_get_attachment_url(get_post_thumbnail_id($post->ID),'full') ) . '" width="120px">';
 					break;
 
 				case 'price':

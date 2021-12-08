@@ -6,8 +6,8 @@ require PLUGIN_DIR_PATH . 'templates/template-parts/property-fields.php';
 	<div class="property-entry h-100">
 
 		<a href="<?php the_permalink(); ?>" class="property-thumbnail">
-			<?php if ( isset( $primary_image['url'] ) ) : ?>
-			<img src="<?php echo esc_url( $primary_image['url'] ); ?>" alt="<?php echo esc_attr( $primary_image['alt'] ); ?>" class="img-fluid">
+			<?php if ( isset( $primary_image ) ) : ?>
+			<img src="<?php echo esc_url( wp_get_attachment_url(get_post_thumbnail_id($post->ID),'full') ) ?>" class="img-fluid">
 			<?php endif; ?>
 		</a>
 

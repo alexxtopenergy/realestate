@@ -69,7 +69,7 @@
             "key": "field_61a8d64c67d0e",
             "label": "Rooms",
             "name": "rooms",
-            "type": "select",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -78,19 +78,11 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_6197d416df6f0",
@@ -117,7 +109,7 @@
             "key": "field_6197c6eadf6ef",
             "label": "Materials Used",
             "name": "materials_used",
-            "type": "radio",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -126,17 +118,11 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Brick": "Brick",
-                "Panel": "Panel",
-                "Foam Block": "Foam Block"
-            },
-            "allow_null": 1,
-            "other_choice": 0,
             "default_value": "",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_6199be7cab3c8",
@@ -156,57 +142,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_6199bf9eff59c",
-            "label": "Primary Image",
-            "name": "primary_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_6199ba05be52e",
-            "label": "Extra Images",
-            "name": "images",
-            "type": "gallery",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "66",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -227,5 +162,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1638771803
+    "modified": 1638990879
 }

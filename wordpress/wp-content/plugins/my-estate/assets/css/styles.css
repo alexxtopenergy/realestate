@@ -96,3 +96,10 @@
 	background-color: #212529;
 	border-color: #212529;
 }
+.filter-field:first-child {
+	padding-left: 0;
+}
+
+.filter-field:first-child {
+	padding-left: 0;
+}

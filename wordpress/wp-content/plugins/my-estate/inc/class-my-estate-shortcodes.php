@@ -28,11 +28,11 @@ class MyEstateShortcodes {
 		wp_enqueue_script( 'my_ajax_filter_search', plugins_url( '../assets/js/filter.js', __FILE__ ) );
 		wp_localize_script(
 			'my_ajax_filter_search',
-			'ajax_url',
+			'ajax',
 			array(
 				'url'   => admin_url( 'admin-ajax.php' ),
 				'nonce' => wp_create_nonce( '_wpnonce' ),
-				'title' => esc_html__( 'Ajax Filter', 'my-estate' ),
+				//'title' => esc_html__( 'Ajax Filter', 'my-estate' ),
 			)
 		);
 	}
@@ -157,7 +157,7 @@ class MyEstateShortcodes {
 				'compare' => '=',
 			);
 		}
-/*
+		/*
 		if ( isset( $_GET['floor'] ) ) {
 			$floor        = sanitize_text_field( $_GET['floor'] );
 			$meta_query[] = array(
@@ -166,7 +166,7 @@ class MyEstateShortcodes {
 				'compare' => '=',
 			);
 		}
-*/
+		*/
 		if ( isset( $_GET['materials'] ) ) {
 			$materials    = sanitize_text_field( $_GET['materials'] );
 			$meta_query[] = array(
@@ -222,12 +222,11 @@ class MyEstateShortcodes {
 					'title'     => get_the_title(),
 					'content'   => get_the_content(),
 					'permalink' => get_permalink(),
-			//		'floor'     => get_field( 'floor' ),
-					'min_price' => get_field( 'price' ),
+                    'min_price',
 					'max_price' => get_field( 'price' ),
 					'materials' => get_field( 'materials_used' ),
 					'rooms'     => get_field( 'rooms' ),
-					'min_area'  => get_field( 'living_area' ),
+					'min_area',
 					'max_area'  => get_field( 'living_area' ),
 					'district'  => $cats,
 					'poster'    => wp_get_attachment_url( get_post_thumbnail_id( $post->ID ), 'full' ),

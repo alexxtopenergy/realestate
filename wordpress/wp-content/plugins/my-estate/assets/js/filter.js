@@ -25,10 +25,12 @@ jQuery( document ).ready(
 				if (filterForm.find( "#floor" ).val().length !== '') {
 					var floor = filterForm.find( "#floor" ).val();
 				}
-*/
+
 				if (filterForm.find( "#district" ).val().length !== 0) {
 					var district = filterForm.find( "#district" ).val();
 				}
+
+ */
 				if (filterForm.find( "#min_area" ).val().length !== 0) {
 					var min_area = filterForm.find( "#min_area" ).val();
 				}
@@ -44,17 +46,17 @@ jQuery( document ).ready(
 				//	floor : floor,
 					min_area : min_area,
 					min_price : min_price,
-					district : district,
+					//district : district,
 				}
 
 				jQuery.ajax(
 					{
-						url : ajax_url,
+						url : ajax.url,
 						data : data,
 						success : function(response) {
 							filterWrap.find( "ul" ).empty();
 
-							if ( ! response) {
+							if ( response) {
 								for (var i = 0;  i < response.length; i++) {
 									var
 										html = "<li>";
@@ -68,7 +70,7 @@ jQuery( document ).ready(
 									html    += "          <span><i class='fas fa-igloo'></i>Materials: " + response[i].materials + "</span>";
 									html    += "          <span><i class='fas fa-vector-square'></i>Min area: " + response[i].min_area + "</span>";
 									html    += "          <p>Min price: " + response[i].min_price + "</p>";
-									html    += "          <p>District: " + response[i].district + "</p>";
+						//			html    += "          <p>District: " + response[i].district + "</p>";
 									html    += "      </div>";
 									html    += "  </a>";
 									html    += "</li>";

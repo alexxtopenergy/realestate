@@ -8,20 +8,18 @@
 php.conf.ini
 *.phar
 *.phar.1
+.htaccess
+wp-config.php
 
-wordpress/*
-!wp-content/
-wp-content/*
+wordpress/wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
 !wp-content/themes/
-wp-content/themes/twenty*/
-wp-content/uploads/*
 
 mysql/*
 logs/nginx/*
 !logs/nginx/.keep
 _trash
-mysql/*
+
 
 

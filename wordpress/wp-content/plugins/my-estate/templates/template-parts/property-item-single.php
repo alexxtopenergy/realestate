@@ -1,13 +1,12 @@
 <?php
-require PLUGIN_DIR_PATH . 'templates/template-parts/property-fields.php';
-
+	require PLUGIN_DIR_PATH . 'templates/template-parts/property-fields.php';
 ?>
 
 <div class="single-property-entry h-100">
 
 	<?php if ( $primary_image ) : ?>
 	<div class="property-thumbnail">
-		<img src="<?php echo esc_url( wp_get_attachment_url(get_post_thumbnail_id($post->ID),'full') ); ?>" class="img-fluid">
+		<img src="<?php echo esc_url( wp_get_attachment_url( get_post_thumbnail_id( $post->ID ), 'full' ) ); ?>" class="img-fluid">
 	</div>
 	<?php endif; ?>
 

@@ -5,12 +5,17 @@
 
 if ( ! class_exists( 'MyEstateCpt' ) ) :
 
-	class MyEstateCpt {
+	class MyEstateCPT {
+
+		public string $post_type;
+		public string $post_taxonomy;
 
 		/**
 		 * RealEstate constructor.
 		 */
 		public function __construct() {
+			$this->post_type     = 'real_estate';
+			$this->post_taxonomy = 'district';
 			add_action( 'init', array( $this, 'register_cpt_real_estate' ) );
 			add_action( 'init', array( $this, 'register_taxonomy_district' ) );
 		}
@@ -61,11 +66,11 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 				'menu_icon'          => 'dashicons-admin-home',
 				'supports'           => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
 				'show_in_graphql'    => false,
-				'taxonomies'         => array( 'district' ),
+				'taxonomies'         => array( $this->post_taxonomy ),
 
 			);
+			register_post_type( $this->post_type, $args );
 
-			register_post_type( 'real_estate', $args );
 		}
 
 
@@ -90,16 +95,16 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 				'show_in_nav_menus' => true,
 				'query_var'         => true,
 				'rewrite'           => array(
-					'slug'       => 'properties/district',
+					'slug'       => $this->post_taxonomy,
 					'with_front' => true,
 				),
 			);
 
-			register_taxonomy( 'district', array( 'real_estate' ), $args );
+			register_taxonomy( $this->post_taxonomy, array( $this->post_type ), $args );
 		}
 	}
 endif;
 
-if ( class_exists( 'MyEstateCpt' ) ) :
-	$my_estate_cpt = new MyEstateCpt();
+if ( class_exists( 'MyEstateCPT' ) ) :
+	$my_estate_cpt = new MyEstateCPT();
 endif;

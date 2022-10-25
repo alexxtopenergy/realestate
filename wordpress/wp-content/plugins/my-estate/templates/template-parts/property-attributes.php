@@ -1,3 +1,4 @@
+
 <ul class="property-wrap mb-3 mb-lg-0">
 
 	<?php if ( $street ) : ?>

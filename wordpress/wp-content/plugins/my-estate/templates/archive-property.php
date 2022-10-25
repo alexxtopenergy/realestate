@@ -1,17 +1,11 @@
 <?php
 
 get_header();
+require PLUGIN_DIR_PATH . 'templates/template-parts/property-fields.php';
 
 ?>
 
 <div class="property-section site-section-sm pb-0 pt-5">
-	<div class="filter-block">
-		<div class="container">
-			<div class="row">
-				<?php require PLUGIN_DIR_PATH . 'templates/template-parts/filter.php'; ?>
-			</div>
-		</div>
-	</div>
 
 	<div class="property-item">
 		<div class="container">
@@ -52,7 +46,7 @@ get_header();
 
 							array(
 								'key'     => 'materials_used',
-								'value'   => esc_attr( $materials ),
+								'value'   => esc_attr( $materials_used ),
 								'type'    => 'CHAR',
 								'compare' => '=',
 							),
@@ -78,6 +72,7 @@ get_header();
 						'post_type'      => 'real_estate',
 						'posts_per_page' => -1,
 						'taxonomy'       => 'district',
+						'post_status'    => 'publish',
 					);
 
 					 $properties_posts_query = new WP_Query( $properties );

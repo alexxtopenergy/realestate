@@ -23,5 +23,56 @@
 }
 .homepage-section,
 .site-wrapper{
-	height: calc(100vh - 140px);
+	min-height: calc(100vh - 140px);
+}
+
+#my-ajax-filter-search label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#my-ajax-filter-search select {
+	width: 100%;
+	background-color: #f7f7f7;
+	padding: 0.625em 0.4375em;
+	border: 1px solid #d1d1d1;
+}
+
+#ajax_filter_search_results {
+	list-style: none;
+	display: flex;
+	justify-content: start;
+	flex-wrap: wrap;
+}
+
+#ajax_filter_search_results li.property-entry {
+	width: 31%;
+	float: left;
+	margin-right: 2%;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+#ajax_filter_search_results li.no-result {
+	width: 100%;
+	text-align: center;
+}
+
+.pl-15{
+	padding-left: 15px;
+}
+.pr-15{
+	padding-right: 15px;
+}
+.property-qty select{
+	color: #6c757d;
+}
+#my-ajax-filter-search .property-qty label{
+	color: #6c757d;
+	font-weight: 400;
+}
+#my-ajax-filter-search .form-control {
+	background-color: #f7f7f7;
 }

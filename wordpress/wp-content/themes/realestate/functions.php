@@ -140,14 +140,10 @@ add_action( 'widgets_init', 'realestate_widgets_init' );
  * Enqueue scripts and styles.
  */
 function realestate_scripts() {
-	wp_enqueue_style( 'realestate-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'realestate-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'realestate-style', get_stylesheet_uri(), array(), time() );
 
-	wp_enqueue_script( 'realestate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'realestate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), time(), true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'realestate_scripts' );
 
@@ -177,4 +173,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

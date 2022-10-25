@@ -26,7 +26,7 @@
         {
             "key": "field_6197c559808e6",
             "label": "Number of floors",
-            "name": "number_of_floors",
+            "name": "floors_number",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -109,7 +109,7 @@
             "key": "field_6197c6eadf6ef",
             "label": "Materials Used",
             "name": "materials_used",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -118,11 +118,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "choices": {
+                "panel": "Panel",
+                "brick": "Brick",
+                "foamblock": "Foam block"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_6199be7cab3c8",
@@ -162,5 +169,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1638990879
+    "modified": 1666689244
 }

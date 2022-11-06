@@ -119,9 +119,9 @@
                 "id": ""
             },
             "choices": {
-                "panel": "Panel",
-                "brick": "Brick",
-                "foamblock": "Foam block"
+                "Panel": "Panel",
+                "Brick": "Brick",
+                "Foam Block": "Foam Block"
             },
             "default_value": false,
             "allow_null": 0,
@@ -169,5 +169,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1666689244
+    "modified": 1667746037
 }

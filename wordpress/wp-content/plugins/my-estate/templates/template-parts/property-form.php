@@ -65,7 +65,7 @@
 
 	<div class="materials-field filter-field">
 		<div class="select-wrap">
-			<select type="select" name="materials" id="materials" class="form-control d-block">
+			<select type="select" name="materials_used" id="materials_used" class="form-control d-block">
 				<option value=""><?php esc_html_e( 'Materials', 'my-estate' ); ?></option>
 				<option value="Brick"><?php esc_html_e( 'Brick', 'my-estate' ); ?></option>
 				<option value="Panel"><?php esc_html_e( 'Panel', 'my-estate' ); ?></option>

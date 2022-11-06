@@ -3,14 +3,14 @@
 You can automatically deploy a local docker WordPress site using the following commands:
 
 # Build and start installation
-docker-compose up -d --build
+docker-compose up -d
 
-#Visit your site at http://localhost
+#Visit your site at 
+http://localhost
 
 # Stop and remove containers
 docker-compose down
-# Build, and start the WordPress website
-docker-compose up -d --build
+
 # Reset everything
 docker-compose down
 rm -rf certs/* certs-data/* logs/nginx/* mysql/* wordpress/*

@@ -33,7 +33,7 @@ http://localhost/shortcode/
 #import Demo Data 
 http://localhost/wp-admin/import.php
 
-Please, import realestate.WordPress.2021-12-06.xml in root path
+Please, import realestate.WordPress.2022-11-06.xml in root path
 
 
 

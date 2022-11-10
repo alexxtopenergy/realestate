@@ -1,6 +1,7 @@
 start:
 	docker-compose up -d
 
+# Please name commands with opposite names if they do opposite things. So the better name would be "stop" as opposite from "start"
 down:
 	docker-compose down
 

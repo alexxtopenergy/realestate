@@ -42,7 +42,7 @@ if ( ! class_exists( 'MyEstateHelper' ) ) {
 }
 
 if ( ! class_exists( 'MyEstate' ) ) :
-
+    // Why this class isn't located in the separate file?
 	/**
 	 * Class RealEstate
 	 */
@@ -84,6 +84,7 @@ if ( ! class_exists( 'MyEstate' ) ) :
 
 endif;
 
+// Redundant condition
 if ( class_exists( 'MyEstate' ) ) :
 	$my_estate = new MyEstate();
 	$my_estate->register_scripts();

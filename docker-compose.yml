@@ -30,6 +30,8 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD:-password}
       - MYSQL_DATABASE=${COMPOSE_PROJECT_NAME:-wordpress}
     restart: always
+    ports:
+      - "3306:3306"
 
   wpcli:
     build: ./wpcli/

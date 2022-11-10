@@ -6,6 +6,8 @@
 class MyEstateHelper {
 
 	public function __construct() {
+	    // The last param "3" is redundant I guess.
+        // To answer!
 		add_filter( 'acf/format_value/name=price', array( $this, 'format_number_as_currency' ), 10, 3 );
 		add_action( 'pre_get_post', array( $this, 'my_pre_get_posts' ) );
 	}
@@ -19,6 +21,9 @@ class MyEstateHelper {
 	 *
 	 * @return mixed|string
 	 */
+	// Unused arguments
+    // It would be great if you added types to args and return instances if php-version allows
+    // public function format_number_as_currency( int $price_value ): string|int
 	public function format_number_as_currency( $price_value, $post_id, $field ) {
 		if ( $price_value > 0 ) :
 			$price_value = number_format( ( $price_value ), 0, '.', ',' );

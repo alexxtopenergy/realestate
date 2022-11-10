@@ -9,7 +9,9 @@ php.conf.ini
 *.phar
 *.phar.1
 .htaccess
+# Config file should be deleted after it was added to ignore. Otherwise it's still under version control.
 wp-config.php
+# Why this file is put to ignore?
 wp-config-sample.php
 debug.log
 wordpress/wp-content/uploads

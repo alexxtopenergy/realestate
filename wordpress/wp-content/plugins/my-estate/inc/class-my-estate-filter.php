@@ -3,6 +3,8 @@
  * Class My Estate Shortcodes
  */
 
+// "S" principle violation.
+// What is S? and how it's violated here?
 class MyEstateFilter {
 
 	public function __construct() {
@@ -73,9 +75,14 @@ class MyEstateFilter {
 		return ob_get_clean();
 	}
 
+
+    // Function/Method should be as tiny as possible! Please try to keep average length of methods up to 30 lines.
+	// https://dzone.com/articles/rule-30-%E2%80%93-when-method-class-or
+    // Please refactor
 	public function my_ajax_filter_search_callback() {
 
-		require PLUGIN_DIR_PATH . 'templates/template-parts/property_atts.php';
+		// Never put the part of logic to the separate file.
+        require PLUGIN_DIR_PATH . 'templates/template-parts/property_atts.php';
 
 		if ( ! empty( $nonce ) && wp_verify_nonce( $nonce, 'property_filter' ) ) {
 
@@ -91,6 +98,7 @@ class MyEstateFilter {
 				$posts_html = ob_get_contents();
 				ob_end_clean();
 			} else {
+			    // Check what the function `esc_html_e()` is actually does.
 				$posts_html = esc_html_e( 'Nothing found for your criteria.', 'MyEstate' );
 			}
 
@@ -104,21 +112,28 @@ class MyEstateFilter {
 			);
 			wp_die();
 		} else {
+		    // 1. This case isn't handled on Frontend
+            // 2. This case isn't in json-format. Keep the same format for all responses to FE. Json is preferable.
+            // 3. 'Nonce is invalid' doesn't say anything to avarage user. Always try to walk in customers shoes.
 			die( 'Nonce is invalid' );
 		}
+
+		// It's always good to catch and handle possible exceptions and error states.
 	}
 
 	public function my_estate_load_more_posts() {
+	    // Seems that the variable isn't used
 		global $wp_query;
 
+		// Not secure! Why?
 		$args                = json_decode( stripslashes( $_POST['query'] ), true );
 		$args['paged']       = $_POST['page'] + 1;
 		$args['post_status'] = 'publish';
 
-		query_posts( $args );
+        query_posts( $args );
 
 		if ( have_posts() ) :
-			while ( have_posts() ) :
+            while ( have_posts() ) :
 				the_post();
 				require PLUGIN_DIR_PATH . 'templates/template-parts/property-item-article.php';
 			endwhile;
@@ -129,6 +144,6 @@ class MyEstateFilter {
 	}
 
 }
-
+// Variable is never used.
 $my_estate_filter = new MyEstateFilter();
 

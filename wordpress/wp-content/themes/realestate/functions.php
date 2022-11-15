@@ -140,7 +140,8 @@ add_action( 'widgets_init', 'realestate_widgets_init' );
  * Enqueue scripts and styles.
  */
 function realestate_scripts() {
-	wp_enqueue_style( 'realestate-style', get_stylesheet_uri(), array(), time() );
+	// Please use version constant and bump this number ONLY in case - there were some changes in assets
+    wp_enqueue_style( 'realestate-style', get_stylesheet_uri(), array(), time() );
 
 	wp_enqueue_script( 'realestate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), time(), true );
 

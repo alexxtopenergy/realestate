@@ -7,14 +7,17 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 
 	class MyEstateCPT {
 
-		public string $post_type;
+		// Always keep an eye on props visibility
+        // Never set public access if you don't use property/method outside class.
+        // Post-type/taxonomy should be read-only. So it's better to use constants for these cases.
+        public string $post_type;
 		public string $post_taxonomy;
 
 		/**
 		 * RealEstate constructor.
 		 */
 		public function __construct() {
-			$this->post_type     = 'real_estate';
+		    $this->post_type     = 'real_estate';
 			$this->post_taxonomy = 'district';
 			add_action( 'init', array( $this, 'register_cpt_real_estate' ) );
 			add_action( 'init', array( $this, 'register_taxonomy_district' ) );
@@ -26,6 +29,9 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 		public function register_cpt_real_estate() {
 
 			$labels = array(
+			    // Please don't use escape functions only where they are needed.
+                // Where they are needed? What should be used here instead.
+                // Textdomain 'real_estate' isn't registered anywhere
 				'name'                  => esc_html_x( 'Real Estates', 'real_estate' ),
 				'singular_name'         => esc_html_x( 'Real Estate', 'real_estate' ),
 				'menu_name'             => esc_html__( 'Real Estate', 'real_estate' ),
@@ -47,6 +53,7 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 			);
 
 			$args = array(
+                // Textdomain 'my-estate' isn't registered anywhere
 				'label'              => esc_html__( 'Real Estate', 'my-estate' ),
 				'labels'             => $labels,
 				'description'        => '',
@@ -105,6 +112,7 @@ if ( ! class_exists( 'MyEstateCpt' ) ) :
 	}
 endif;
 
-if ( class_exists( 'MyEstateCPT' ) ) :
-	$my_estate_cpt = new MyEstateCPT();
-endif;
+
+// Unused variable
+new MyEstateCPT();
+

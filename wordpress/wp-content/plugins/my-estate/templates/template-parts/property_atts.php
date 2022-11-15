@@ -1,7 +1,11 @@
 <?php
 
-	$min_price      = ( isset( $_POST['min_price'] ) ? sanitize_text_field( $_POST['min_price'] ) : '' );
-	$max_price      = ( isset( $_POST['max_price'] ) ? sanitize_text_field( $_POST['max_price'] ) : '' );
+	// Why did you use sanitize_text_field() function?
+    // What's the purpose of this function?
+    // What can be improved in terms of getting filter params?
+    // Why did you wrap each expression with ()?
+    $min_price      = ( isset( $_POST['min_price'] ) ? sanitize_text_field( $_POST['min_price'] ) : '' );
+    $max_price      = ( isset( $_POST['max_price'] ) ? sanitize_text_field( $_POST['max_price'] ) : '' );
 	$min_area       = ( isset( $_POST['min_area'] ) ? sanitize_text_field( $_POST['min_area'] ) : '' );
 	$max_area       = ( isset( $_POST['max_area'] ) ? sanitize_text_field( $_POST['max_area'] ) : '' );
 	$materials_used = ( isset( $_POST['materials_used'] ) ? sanitize_text_field( $_POST['materials_used'] ) : '' );
@@ -25,12 +29,14 @@
 	}
 
 	if ( $min_price && $max_price ) {
-		$args['meta_query'][] = array(
+	    $args['meta_query'][] = array(
 			'key'     => 'price',
 			'value'   => array( $min_price, $max_price ),
 			'type'    => 'numeric',
 			'compare' => 'between',
 		);
+	    return $args;
+    // "else" statement is anti-pattern in 99% cases, actually you don't need it. Avoiding it makes code more readable and clear.
 	} else {
 		if ( $min_price ) {
 			$args['meta_query'][] = array(
@@ -50,6 +56,7 @@
 			);
 		}
 
+		// Why are you resetting $args['meta_query']?
 		if ( $min_area || $max_area ) {
 			$args['meta_query'] = array( 'relation' => 'AND' );
 		}

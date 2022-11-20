@@ -3,108 +3,108 @@
  * Class My Estate Custom Post Type
  */
 
-if ( ! class_exists( 'MyEstateCpt' ) ) :
+class MyEstateCPT {
 
-	class MyEstateCPT {
+	const POST_TYPE     = 'real_estate';
+	const POST_TAXONOMY = 'district';
+	const TEXT_DOMAIN   = 'my-estate';
 
-		public string $post_type;
-		public string $post_taxonomy;
-
-		/**
-		 * RealEstate constructor.
-		 */
-		public function __construct() {
-			$this->post_type     = 'real_estate';
-			$this->post_taxonomy = 'district';
-			add_action( 'init', array( $this, 'register_cpt_real_estate' ) );
-			add_action( 'init', array( $this, 'register_taxonomy_district' ) );
-		}
-
-		/**
-		 * Register Post Type: Real Estates.
-		 */
-		public function register_cpt_real_estate() {
-
-			$labels = array(
-				'name'                  => esc_html_x( 'Real Estates', 'real_estate' ),
-				'singular_name'         => esc_html_x( 'Real Estate', 'real_estate' ),
-				'menu_name'             => esc_html__( 'Real Estate', 'real_estate' ),
-				'all_items'             => esc_html__( 'All', 'real_estate' ),
-				'add_new'               => esc_html__( 'Add New', 'real_estate' ),
-				'add_new_item'          => esc_html__( 'Add New', 'real_estate' ),
-				'edit_item'             => esc_html__( 'Edit', 'real_estate' ),
-				'new_item'              => esc_html__( 'New', 'real_estate' ),
-				'view_item'             => esc_html__( 'View', 'real_estate' ),
-				'view_items'            => esc_html__( 'View items', 'real_estate' ),
-				'search_items'          => esc_html__( 'Search', 'real_estate' ),
-				'not_found_in_trash'    => esc_html__( 'Not found in Trash', 'real_estate' ),
-				'featured_image'        => esc_html__( 'Featured Image', 'real_estate' ),
-				'set_featured_image'    => esc_html__( 'Set Featured Image', 'real_estate' ),
-				'remove_featured_image' => esc_html__( 'Remove Featured Image', 'real_estate' ),
-				'use_featured_image'    => esc_html__( 'Use Featured Image', 'real_estate' ),
-				'item_published'        => esc_html__( 'Item Published', 'real_estate' ),
-				'item_updated'          => esc_html__( 'Item Updated', 'real_estate' ),
-			);
-
-			$args = array(
-				'label'              => esc_html__( 'Real Estate', 'my-estate' ),
-				'labels'             => $labels,
-				'description'        => '',
-				'public'             => true,
-				'publicly_queryable' => true,
-				'show_ui'            => true,
-				'has_archive'        => true,
-				'show_in_menu'       => true,
-				'show_in_nav_menus'  => true,
-				'capability_type'    => 'post',
-				'hierarchical'       => true,
-				'rewrite'            => array(
-					'slug'       => 'properties',
-					'with_front' => true,
-				),
-				'query_var'          => true,
-				'menu_icon'          => 'dashicons-admin-home',
-				'supports'           => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
-				'show_in_graphql'    => false,
-				'taxonomies'         => array( $this->post_taxonomy ),
-
-			);
-			register_post_type( $this->post_type, $args );
-
-		}
+	private string $post_type;
+	private string $post_taxonomy;
 
 
-		/**
-		 * Register District Taxonomy
-		 */
-		public function register_taxonomy_district() {
-
-			$labels = array(
-				'name'          => esc_html_x( 'District', 'my-estate' ),
-				'singular_name' => esc_html_x( 'District', 'my-estate' ),
-			);
-
-			$args = array(
-				'label'             => '',
-				'labels'            => $labels,
-				'public'            => true,
-				'hierarchical'      => true,
-				'show_ui'           => true,
-				'show_in_menu'      => true,
-				'show_admin_column' => true,
-				'show_in_nav_menus' => true,
-				'query_var'         => true,
-				'rewrite'           => array(
-					'slug'       => $this->post_taxonomy,
-					'with_front' => true,
-				),
-			);
-
-			register_taxonomy( $this->post_taxonomy, array( $this->post_type ), $args );
-		}
+	/**
+	 * RealEstate constructor.
+	 */
+	public function __construct() {
+		$this->post_type     = self::POST_TYPE;
+		$this->post_taxonomy = self::POST_TAXONOMY;
+		add_action( 'init', array( $this, 'register_cpt_real_estate' ) );
+		add_action( 'init', array( $this, 'register_taxonomy_district' ) );
 	}
-endif;
 
-if ( class_exists( 'MyEstateCPT' ) ) :
-	$my_estate_cpt = new MyEstateCPT();
-endif;
+	/**
+	 * Register Post Type: Real Estates.
+	 */
+	public function register_cpt_real_estate() {
+
+		$labels = array(
+			'name'                  => _x( 'Real Estates', self::TEXT_DOMAIN ),
+			'singular_name'         => _x( 'Real Estate', self::TEXT_DOMAIN ),
+			'menu_name'             => __( 'Real Estate', self::TEXT_DOMAIN ),
+			'all_items'             => __( 'All', self::TEXT_DOMAIN ),
+			'add_new'               => __( 'Add New', self::TEXT_DOMAIN ),
+			'add_new_item'          => __( 'Add New', self::TEXT_DOMAIN ),
+			'edit_item'             => __( 'Edit', self::TEXT_DOMAIN ),
+			'new_item'              => __( 'New', self::TEXT_DOMAIN ),
+			'view_item'             => __( 'View', self::TEXT_DOMAIN ),
+			'view_items'            => __( 'View items', self::TEXT_DOMAIN ),
+			'search_items'          => __( 'Search', self::TEXT_DOMAIN ),
+			'not_found_in_trash'    => __( 'Not found in Trash', self::TEXT_DOMAIN ),
+			'featured_image'        => __( 'Featured Image', self::TEXT_DOMAIN ),
+			'set_featured_image'    => __( 'Set Featured Image', self::TEXT_DOMAIN ),
+			'remove_featured_image' => __( 'Remove Featured Image', self::TEXT_DOMAIN ),
+			'use_featured_image'    => __( 'Use Featured Image', self::TEXT_DOMAIN ),
+			'item_published'        => __( 'Item Published', self::TEXT_DOMAIN ),
+			'item_updated'          => __( 'Item Updated', self::TEXT_DOMAIN ),
+		);
+
+		$args = array(
+			'label'              => __( 'Real Estate', self::TEXT_DOMAIN ),
+			'labels'             => $labels,
+			'description'        => '',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'has_archive'        => true,
+			'show_in_menu'       => true,
+			'show_in_nav_menus'  => true,
+			'capability_type'    => 'post',
+			'hierarchical'       => true,
+			'rewrite'            => array(
+				'slug'       => 'properties',
+				'with_front' => true,
+			),
+			'query_var'          => true,
+			'menu_icon'          => 'dashicons-admin-home',
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+			'show_in_graphql'    => false,
+			'taxonomies'         => array( self::POST_TAXONOMY ),
+
+		);
+		register_post_type( self::POST_TYPE, $args );
+
+	}
+
+
+	/**
+	 * Register District Taxonomy
+	 */
+	public function register_taxonomy_district() {
+
+		$labels = array(
+			'name'          => _x( 'District', self::TEXT_DOMAIN ),
+			'singular_name' => _x( 'District', self::TEXT_DOMAIN ),
+		);
+
+		$args = array(
+			'label'             => '',
+			'labels'            => $labels,
+			'public'            => true,
+			'hierarchical'      => true,
+			'show_ui'           => true,
+			'show_in_menu'      => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'query_var'         => true,
+			'rewrite'           => array(
+				'slug'       => self::POST_TAXONOMY,
+				'with_front' => true,
+			),
+		);
+
+		register_taxonomy( self::POST_TAXONOMY, array( self::POST_TYPE ), $args );
+	}
+}
+new MyEstateCPT();
+

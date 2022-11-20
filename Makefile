@@ -1,7 +1,7 @@
 start:
 	docker-compose up -d
 
-down:
+stop:
 	docker-compose down
 
 install: start healthcheck

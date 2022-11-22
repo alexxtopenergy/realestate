@@ -66,5 +66,5 @@ class MyEstateAdmin {
 
 	}
 }
-$my_estate_admin = new MyEstateAdmin();
+new MyEstateAdmin();
 

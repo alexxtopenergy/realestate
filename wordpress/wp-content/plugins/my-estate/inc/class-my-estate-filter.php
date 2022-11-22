@@ -8,6 +8,7 @@ class MyEstateFilter {
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_scripts' ) );
 		add_action( 'init', array( $this, 'register_shortcode' ) );
+		add_filter('the_content', array( $this, 'strip_shortcodes_from_content') );
 	}
 
 	public function register_scripts() {
@@ -252,6 +253,13 @@ class MyEstateFilter {
 
 		wp_die();
 
+	}
+
+	public function strip_shortcodes_from_content( $content ) {
+		if ( is_search() ) {
+			$content = strip_shortcodes( $content );
+		}
+		return $content;
 	}
 
 }

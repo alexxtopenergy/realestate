@@ -8,7 +8,7 @@
  */
 $properties = get_post(
 	array(
-		'post_type'   => 'real_estate',
+		'post_type'   => TEXT_DOMAIN,
 		'numberposts' => -1,
 	)
 );

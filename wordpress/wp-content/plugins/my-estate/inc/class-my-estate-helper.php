@@ -6,7 +6,7 @@
 class MyEstateHelper {
 
 	public function __construct() {
-		add_filter( 'acf/format_value/name=price', array( $this, 'format_number_as_currency' ), 10, 3 );
+		add_filter( 'acf/format_value/name=price', array( $this, 'format_number_as_currency' ), 10 );
 		add_action( 'pre_get_post', array( $this, 'my_pre_get_posts' ) );
 	}
 
@@ -19,7 +19,7 @@ class MyEstateHelper {
 	 *
 	 * @return mixed|string
 	 */
-	public function format_number_as_currency( $price_value, $post_id, $field ) {
+	public function format_number_as_currency( $price_value ) {
 		if ( $price_value > 0 ) :
 			$price_value = number_format( ( $price_value ), 0, '.', ',' );
 		endif;
@@ -56,5 +56,5 @@ class MyEstateHelper {
 	}
 }
 
-$my_estate_helper = new MyEstateHelper();
+new MyEstateHelper();
 
